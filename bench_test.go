@@ -10,10 +10,6 @@ const VAL = "bar"
 
 var res interface{}
 
-func set(c *Cash) {
-	c.Set(KEY, "bar", Default)
-}
-
 func BenchmarkGet(b *testing.B) {
 	c := New(Conf{10 * time.Minute, -1})
 
