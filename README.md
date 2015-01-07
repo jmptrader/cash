@@ -39,7 +39,7 @@ func main() {
     var foo string
     // Since you can store anything in the
     // cache, when you retrieve the value
-    // you must use type assertion
+    // you must use type assertion.
     //
     // Also, each time a value is fetched
     // the expiration time will be updated
@@ -50,6 +50,19 @@ func main() {
 
     fmt.Println(foo) // bar
 }
+```
+
+### Benchmarks
+
+Some simple benchmarks. To test, just run: `go test -bench=.`:
+
+```
+BenchmarkGet	50000000	        51.3 ns/op
+BenchmarkSet	10000000	       277 ns/op
+BenchmarkHas	50000000	        44.0 ns/op
+BenchmarkDel	50000000	        51.8 ns/op
+BenchmarkClean	20000000	        93.2 ns/op
+BenchmarkFlush	10000000	       152 ns/op
 ```
 
 #### Documentation
