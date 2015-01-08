@@ -93,7 +93,9 @@ func (c *Cash) get(k string) (interface{}, bool) {
 		return nil, false
 	}
 
-	item.touched = time.Now()
+	if item.expire != Forever {
+		item.touched = time.Now()
+	}
 
 	return item.data, true
 }
